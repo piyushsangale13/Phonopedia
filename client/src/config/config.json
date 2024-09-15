@@ -1,5 +1,5 @@
 {
     "API" : {
-        "BASE_URL": "https://phonopedia-server.vercel.app/"
+        "BASE_URL": "https://phonopedia-server.vercel.app"
     }
 }
