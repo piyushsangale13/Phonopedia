@@ -11,12 +11,11 @@ function MobilePage() {
     useEffect(() => {
         const fetchMobileDevices = async () => {
             try {
-                const config = {
+                const response = await axios.request({
                     method: 'get',
                     url: `${config.API.BASE_URL}/api/mobiles`,
                     headers: authHeader(),
-                };
-                const response = await axios.request(config);
+                });
                 setMobileDevices(response.data); // Assuming response.data contains the mobile devices array
             } catch (error) {
                 console.error('Error fetching mobile devices:', error);
