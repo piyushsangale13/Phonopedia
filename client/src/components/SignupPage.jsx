@@ -19,6 +19,10 @@ function SignupPage() {
             setError('Passwords do not match');
             return;
         }
+        if (password.length < 8) {
+            setError('Password must be at least 8 characters long');
+            return;
+        }
         const success = await signup(firstName, lastName, email, password);
         if (success) {
             window.location.href = '/';
