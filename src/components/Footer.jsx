@@ -5,7 +5,7 @@ import { FaFacebook, FaTwitter, FaInstagram } from 'react-icons/fa';
 function Footer() {
     return (
         <footer className="bg-gray-800 text-white py-8 mx-auto">
-            <div className="container flex flex-col md:flex-row items-center justify-around">
+            <div className="container flex flex-col md:flex-row sm:items-start items-center justify-around">
                 {/* Newsletter Subscription */}
                 <div className="flex flex-col items-center mb-6 md:mb-0">
                     <h2 className="text-xl md:text-3xl font-bold mb-4">Subscribe to our Newsletter</h2>
@@ -31,8 +31,8 @@ function Footer() {
                 {/* Contact Information and Social Links */}
                 <div className="flex flex-col items-center md:items-start">
                     <h2 className="text-xl md:text-3xl font-bold mb-4">Contact Us</h2>
-                    <p className="text-gray-400 mb-2">Email: support@phonopedia.com</p>
-                    <p className="text-gray-400 mb-2">Phone: +1 234 567 890</p>
+                    <p className="text-gray-400 mb-2">Email: piyushsangale13@gmail.com</p>
+                    <p className="text-gray-400 mb-2">Phone: +91 9325461338</p>
                     <div className="flex space-x-4 mt-4">
                         <a href="#" className="text-gray-400 hover:text-white"><FaFacebook size={24} /></a>
                         <a href="#" className="text-gray-400 hover:text-white"><FaTwitter size={24} /></a>

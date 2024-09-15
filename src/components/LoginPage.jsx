@@ -1,15 +1,23 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-
+import { login } from './Auth';
+import VisibilityIcon from '@mui/icons-material/Visibility';
+import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 function LoginPage() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [error, setError] = useState('');
+    const [showPassword, setShowPassword] = useState(false);
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        // Handle login logic here
-        console.log('Email:', email);
-        console.log('Password:', password);
+        e.preventDefault();
+        const success = await login(email, password);
+        if (success) {
+            window.location.href = '/'; // Redirect to dashboard after login
+        } else {
+            setError('Login failed. Please try again.');
+        }
     };
 
     return (
@@ -29,13 +37,22 @@ function LoginPage() {
                     </div>
                     <div className="mb-4">
                         <label className="block text-gray-700">Password</label>
-                        <input
-                            type="password"
-                            className="w-full px-3 py-2 border rounded"
-                            value={password}
-                            onChange={(e) => setPassword(e.target.value)}
-                            required
-                        />
+                        <div className='relative'>
+                            <input
+                                type={showPassword ? 'text' : 'password'}
+                                className="w-full px-3 py-2 border rounded"
+                                value={password}
+                                onChange={(e) => setPassword(e.target.value)}
+                                required
+                            />
+                            <button
+                                type="button"
+                                className="absolute inset-y-0 right-0 px-3 text-gray-500 hover:text-gray-700"
+                                onClick={() => setShowPassword(!showPassword)}
+                            >
+                                {showPassword ? <VisibilityIcon /> : <VisibilityOffIcon />}
+                            </button>
+                        </div>
                     </div>
                     <button
                         type="submit"
@@ -56,6 +73,7 @@ function LoginPage() {
                             Forgot Password?
                         </Link>
                     </p>
+                    {error && <p className='text-red-500'>{error}</p>}
                 </div>
             </div>
         </div>
