@@ -132,15 +132,15 @@ function CommunityPage() {
                                     />
                                 </div>
                                 <div className="mb-4">
-                                    <textarea
+                                    <input
                                         name="content"
                                         placeholder="Your post"
                                         value={newPost.content}
                                         onChange={handleInputChange}
-                                        className="w-full p-2 rounded-md border border-gray-300"
+                                        className="w-full h-28 p-2 rounded-md border border-gray-300"
                                         rows="4"
                                         required
-                                    ></textarea>
+                                    ></input>
                                 </div>
                                 <button type="submit" className="p-2 bg-blue-500 text-white rounded-md">Post</button>
                             </form>
