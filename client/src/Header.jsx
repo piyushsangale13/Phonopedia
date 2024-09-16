@@ -80,7 +80,6 @@ function Header() {
                 <Link to="/" className="font-semibold leading-6 text-gray-900">Home</Link>
                 <Link to="/mobile" className="font-semibold leading-6 text-gray-900">Mobiles</Link>
                 <Link to="/community" className="font-semibold leading-6 text-gray-900">Community</Link>
-                <Link to="/offers" className="font-semibold leading-6 text-gray-900">Offers</Link>
             </div>
 
             <div className="hidden lg:flex lg:flex-1 lg:justify-end items-center">
@@ -114,7 +113,6 @@ function Header() {
                         <Link to="/" className="block font-semibold leading-6 text-gray-900 py-2">Home</Link>
                         <Link to="/mobile" className="block font-semibold leading-6 text-gray-900 py-2">Mobiles</Link>
                         <Link to="/community" className="block font-semibold leading-6 text-gray-900 py-2">Community</Link>
-                        <Link to="/offers" className="block font-semibold leading-6 text-gray-900 py-2">Offers</Link>
                         {isLoggedIn ? (
                             <button
                                 onClick={logout}
