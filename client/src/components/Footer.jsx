@@ -22,10 +22,9 @@ function Footer() {
                 {/* Quick Links */}
                 <div className="flex flex-col items-center md:items-start">
                     <h2 className="text-xl md:text-3xl font-bold mb-4">Quick Links</h2>
-                    <Link to="#" className="text-gray-400 mb-2">Home</Link>
-                    <Link to="#" className="text-gray-400 mb-2">Mobiles</Link>
-                    <Link to="#" className="text-gray-400 mb-2">Community</Link>
-                    <Link to="#" className="text-gray-400 mb-2">Offers</Link>
+                    <Link to="/" className="text-gray-400 mb-2">Home</Link>
+                    <Link to="/mobile" className="text-gray-400 mb-2">Mobiles</Link>
+                    <Link to="/community" className="text-gray-400 mb-2">Community</Link>
                 </div>
                 
                 {/* Contact Information and Social Links */}
