@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import {authHeader} from './Auth';
-import config from "../config/config.json";
 
 function MobilePage() {
     const [searchTerm, setSearchTerm] = useState('');
@@ -13,7 +12,7 @@ function MobilePage() {
             try {
                 const response = await axios.request({
                     method: 'get',
-                    url: `${config.API.BASE_URL}/api/mobiles`,
+                    url: `${process.env.REACT_APP_API_BASE_URL}/api/mobiles`,
                     headers: authHeader(),
                 });
                 setMobileDevices(response.data); // Assuming response.data contains the mobile devices array

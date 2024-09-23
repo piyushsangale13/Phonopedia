@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
-import { authHeader } from './Auth'; // Assuming you have a getToken function that retrieves the JWT
-import config from "../config/config.json";
+import { getTokenInfo } from './Auth';
 import Avatar from '@mui/material/Avatar';
 
 const ProfilePage = () => {
@@ -23,15 +21,12 @@ const ProfilePage = () => {
     useEffect(() => {
         const fetchUserProfile = async () => {
             try {
-                const response = await axios.get(`${config.API.BASE_URL}/api/auth/profile`, {
-                    headers: authHeader(),
-                });
-                console.log(response);
+                const { firstName, lastName, email } = getTokenInfo();
                 setUser((prevState) => ({
                     ...prevState,
-                    firstName: response.data.firstName,
-                    lastName: response.data.lastName,
-                    email: response.data.email,
+                    firstName: firstName,
+                    lastName: lastName,
+                    email: email,
                 }));
             } catch (error) {
                 console.error('Error fetching profile:', error);
@@ -53,7 +48,6 @@ const ProfilePage = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        // Handle profile update logic here
         setIsEditing(false);
     };
 
