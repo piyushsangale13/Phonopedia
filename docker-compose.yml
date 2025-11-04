@@ -1,0 +1,29 @@
+services:
+  server:
+    image: node:20-alpine
+    working_dir: /app
+    command: sh -c "npm ci && npm start"
+    volumes:
+      - ./server:/app
+      - /app/node_modules
+    env_file:
+      - ./server/.env
+    environment:
+      NODE_ENV: development
+      PORT: 5000
+    ports:
+      - "5000:5000"
+
+  client:
+    image: node:20-alpine
+    working_dir: /app
+    command: sh -c "npm install && npm start"
+    volumes:
+      - ./client:/app
+      - /app/node_modules
+    environment:
+      NODE_ENV: development
+    ports:
+      - "3000:3000"
+    depends_on:
+      - server
